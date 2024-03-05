@@ -275,6 +275,18 @@ public class MainWindowController: NSWindowController, NSTableViewDelegate, NSTa
         }
     }
 
+    @IBAction
+    private func clearSource( _ sender: Any? )
+    {
+        self.sourceFile = nil
+    }
+
+    @IBAction
+    private func clearDestination( _ sender: Any? )
+    {
+        self.destinationFiles = []
+    }
+
     private func updateSelection()
     {
         guard let source = self.sourceFile

@@ -164,6 +164,25 @@
                                             <action selector="selectSource:" target="-2" id="28M-de-6bE"/>
                                         </connections>
                                     </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="o01-sb-OLT">
+                                        <rect key="frame" x="354" y="17.5" width="16" height="21"/>
+                                        <buttonCell key="cell" type="square" title="Clear" bezelStyle="shadowlessSquare" image="xmark.circle.fill" catalog="system" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyUpOrDown" inset="2" id="FPk-eF-3Ag">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="qbF-w1-7qY"/>
+                                            <constraint firstAttribute="width" constant="16" id="w69-GT-Woo"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="clearSource:" target="-2" id="YLm-xn-pPD"/>
+                                            <binding destination="-2" name="hidden" keyPath="self.sourceFile" id="eLr-8b-003">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSIsNil</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
                                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="v6i-zN-Ds6" customClass="BackgroundView" customModule="MetaCopy" customModuleProvider="target">
                                         <rect key="frame" x="390" y="44" width="370" height="231"/>
                                         <subviews>
@@ -315,15 +334,39 @@
                                             <action selector="selectDestination:" target="-2" id="w2r-Vt-IAh"/>
                                         </connections>
                                     </button>
+                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="cWI-sF-lP4">
+                                        <rect key="frame" x="744" y="17.5" width="16" height="21"/>
+                                        <buttonCell key="cell" type="square" title="Clear" bezelStyle="shadowlessSquare" image="xmark.circle.fill" catalog="system" imagePosition="only" alignment="center" controlSize="small" imageScaling="proportionallyUpOrDown" inset="2" id="pzw-Bw-w7b">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="smallSystem"/>
+                                        </buttonCell>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="1yP-77-3Ni"/>
+                                            <constraint firstAttribute="height" constant="16" id="6m0-af-FjU"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="clearDestination:" target="-2" id="f6q-NN-PYY"/>
+                                            <binding destination="-2" name="hidden" keyPath="self.destinationFiles" id="LW6-4b-npj">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">ArrayIsEmpty</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="cWI-sF-lP4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ekl-i6-Vhc" secondAttribute="trailing" constant="8" symbolic="YES" id="51L-d8-Ggf"/>
+                                    <constraint firstItem="o01-sb-OLT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yNh-Ow-g5t" secondAttribute="trailing" constant="8" symbolic="YES" id="Ays-HF-rfd"/>
+                                    <constraint firstItem="cWI-sF-lP4" firstAttribute="centerY" secondItem="Ekl-i6-Vhc" secondAttribute="centerY" id="BSs-p4-gnq"/>
                                     <constraint firstItem="ppF-iC-svr" firstAttribute="width" secondItem="2Hb-iv-c9P" secondAttribute="width" multiplier="0.5" constant="-10" id="Bkl-CM-bDb"/>
                                     <constraint firstItem="Ekl-i6-Vhc" firstAttribute="top" secondItem="v6i-zN-Ds6" secondAttribute="bottom" constant="8" symbolic="YES" id="DIG-6m-622"/>
+                                    <constraint firstItem="o01-sb-OLT" firstAttribute="centerY" secondItem="yNh-Ow-g5t" secondAttribute="centerY" id="EKi-Rh-3wz"/>
                                     <constraint firstAttribute="bottom" secondItem="Ekl-i6-Vhc" secondAttribute="bottom" constant="20" symbolic="YES" id="MZx-h7-50P"/>
                                     <constraint firstItem="ppF-iC-svr" firstAttribute="leading" secondItem="2Hb-iv-c9P" secondAttribute="leading" id="NOy-PV-y5Z"/>
                                     <constraint firstItem="yNh-Ow-g5t" firstAttribute="centerX" secondItem="ppF-iC-svr" secondAttribute="centerX" id="Pt0-DN-Yc2"/>
                                     <constraint firstItem="yNh-Ow-g5t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2Hb-iv-c9P" secondAttribute="leading" constant="20" symbolic="YES" id="T7Q-lj-Pcd"/>
                                     <constraint firstAttribute="trailing" secondItem="v6i-zN-Ds6" secondAttribute="trailing" id="XzL-D8-5Te"/>
+                                    <constraint firstItem="cWI-sF-lP4" firstAttribute="trailing" secondItem="v6i-zN-Ds6" secondAttribute="trailing" id="Y2q-Ng-Yu3"/>
                                     <constraint firstItem="Ekl-i6-Vhc" firstAttribute="centerX" secondItem="v6i-zN-Ds6" secondAttribute="centerX" id="jJp-o6-7wM"/>
                                     <constraint firstAttribute="bottom" secondItem="yNh-Ow-g5t" secondAttribute="bottom" constant="20" symbolic="YES" id="jPy-Sm-k80"/>
                                     <constraint firstItem="v6i-zN-Ds6" firstAttribute="top" secondItem="2Hb-iv-c9P" secondAttribute="top" id="nfi-Zs-SDz"/>
@@ -331,6 +374,7 @@
                                     <constraint firstItem="yNh-Ow-g5t" firstAttribute="top" secondItem="ppF-iC-svr" secondAttribute="bottom" constant="8" symbolic="YES" id="rOd-kg-tMJ"/>
                                     <constraint firstItem="Ekl-i6-Vhc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yNh-Ow-g5t" secondAttribute="trailing" constant="8" symbolic="YES" id="rTN-Dp-BiV"/>
                                     <constraint firstItem="v6i-zN-Ds6" firstAttribute="width" secondItem="2Hb-iv-c9P" secondAttribute="width" multiplier="0.5" constant="-10" id="soN-0x-REM"/>
+                                    <constraint firstItem="o01-sb-OLT" firstAttribute="trailing" secondItem="ppF-iC-svr" secondAttribute="trailing" id="y9j-uw-ZIJ"/>
                                     <constraint firstItem="ppF-iC-svr" firstAttribute="top" secondItem="2Hb-iv-c9P" secondAttribute="top" id="ywx-6P-sgL"/>
                                 </constraints>
                             </customView>
@@ -669,5 +713,6 @@ DQ
         <image name="photo.badge.arrow.down.fill" catalog="system" width="21" height="16"/>
         <image name="photo.fill" catalog="system" width="18" height="14"/>
         <image name="photo.stack.fill" catalog="system" width="17" height="18"/>
+        <image name="xmark.circle.fill" catalog="system" width="15" height="15"/>
     </resources>
 </document>
