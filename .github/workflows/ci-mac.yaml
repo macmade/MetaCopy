@@ -15,12 +15,3 @@ jobs:
                 submodules: 'recursive'
                 
             - uses: macmade/action-xcodebuild@v1.0.0
-            
-            - uses: macmade/action-slack@v1.0.0
-              if:   ${{ always() }}
-              env:
-                SLACK_WEBHOOK_URL:  ${{ secrets.SLACK_WEBHOOK_URL }}
-              with:
-                channel:    '#ci'
-                status:     ${{ job.status }}
-                title:      ${{ matrix.run-config[ 'scheme' ] }} - ${{ matrix.run-config[ 'configuration' ] }}
